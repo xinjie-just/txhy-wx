@@ -336,7 +336,7 @@ label {
 
 /*===投诉建议===*/
 .advise-form {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0 .5em;
   color: #333;
   font-size: 14px;
@@ -369,13 +369,13 @@ label {
 .advise-form .advise textarea {
   -webkit-flex: 1;
   flex: 1;
-  min-height: 100px;
-  max-height: 120px;
+  min-height: 120px;
+  max-height: 150px;
   line-height: 1.6em;
   overflow-y: auto;
   padding: .25em .5em;
   font-size: 14px;
-  color: #999;
+  color: #ccc;
   border: 1px solid;
 }
 .advise-form .advise textarea:focus {
@@ -383,7 +383,10 @@ label {
   border-color: #333;
 }
 .advise-form .advise-handle {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+}
+.advise-form .advise-handle .advise-submit {
+  padding: 10px 28px;
 }
 
 /*# sourceMappingURL=txhy.css.map */
