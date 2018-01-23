@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>同乡好运</title>
+        <meta name="keywords" content="同乡好运">
+        <meta name="description" content="同乡好运">
+		<link href="styles/mui.css" rel="stylesheet" />
+		<link href="styles/txhy.css" rel="stylesheet"/>
+    </head>
+    <body>
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    	    <h1 class="mui-title">投诉建议</h1>
+    	</header>
+    	
+    	<nav class="mui-bar mui-bar-tab">
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-home"></span>
+    	        <span class="mui-tab-label">本地</span>
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-chatbubble"></span>
+    	        <span class="mui-tab-label">动态</span>
+    	    </a>
+    	    <a class="mui-tab-item mui-active">
+    	        <span class="mui-icon mui-icon-person"></span>
+    	        <span class="mui-tab-label">我的</span>
+    	    </a>
+    	</nav>
+    	
+    	<div class="mui-content">
+			<form action="" method="post" id="adviseForm" class="advise-form">
+				<div class="advise">
+					<label for="advise" class="required">投诉建议</label>
+					<textarea id="advise" placeholder="投诉建议"></textarea>
+				</div>
+				<div class="mui-button-row advise-handle">
+					<button type="submit" class="advise-submit mui-btn mui-btn-outlined">提交</button>					
+				</div>
+			</form>
+		</div>
+    	
+		<script src="scripts/mui.js"></script>
+		<script>
+			(function() {
+				mui.init({
+					
+				});
+			})();
+		</script>
+	</body>
+</html>

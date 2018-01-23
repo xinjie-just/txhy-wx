@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*! lixinjie 20180123 https://github.com/xinjie-just/txhy-wx.git */
+@import "variables";
+@import "reboot";
+
+.mui-content {
+    min-height: 100%;
+}
+
+
+
+
+
+
+/*===投诉建议===*/
+.advise-form {
+    margin-top: 2rem;
+    padding: 0 .5em;
+    color: $text-color;
+    font-size: $font-size;
+    .advise {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+                flex-direction: row;
+        -webkit-align-items: center;
+                align-items: center;
+        label {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            padding-right: 1em;
+            padding-left: 1em;
+            &.required {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    left: 0.4em;
+                    content: "*";
+                    color: #f00;
+                    font-size: 1em;
+                }
+            }
+        }
+        textarea {
+            -webkit-flex: 1;
+                    flex: 1;
+            min-height: 100px;
+            max-height: 120px;
+            line-height: 1.6em;
+            overflow-y: auto;
+            padding: .25em .5em;
+            font-size: $font-size;
+            color: #999;
+            border: 1px solid;
+            &:focus {                
+                color: $text-color;
+                border-color: $text-color;
+            } 
+                   
+        }
+    }
+    .advise-handle {
+        margin-top: 1rem;
+    }
+}
