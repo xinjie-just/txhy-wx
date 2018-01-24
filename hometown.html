@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>家乡信息 | 同乡好运</title>
+        <meta name="keywords" content="同乡好运">
+        <meta name="description" content="同乡好运">
+		<link href="styles/mui.css" rel="stylesheet" />
+		<link href="styles/mui.picker.min.css" rel="stylesheet" />
+		<link href="styles/txhy.css" rel="stylesheet"/>
+    </head>
+    <body>
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    	    <h1 class="mui-title">家乡信息</h1>
+    	</header>
+    	
+    	<nav class="mui-bar mui-bar-tab">
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-home"></span>
+    	        <span class="mui-tab-label">本地</span>
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-chatbubble"></span>
+    	        <span class="mui-tab-label">动态</span>
+    	    </a>
+    	    <a class="mui-tab-item mui-active">
+    	        <span class="mui-icon mui-icon-person"></span>
+    	        <span class="mui-tab-label">我的</span>
+    	    </a>
+    	</nav>
+    	
+    	<div class="mui-content">
+    		<h1 class="hometown-heading">请填写家乡信息</h1>
+			<form action="" method="post" id="adviseForm" class="hometown-form">		
+			    <div class="area" id="areaContainer">
+			        <label for="area" class="required">所在地区</label>
+			    	<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
+			    </div>
+			    <div class="address">
+			        <label for="address" class="required">详细地址</label>
+			        <input type="text" id="address" name="address" class="mui-input-clear mui-input-speech" placeholder="请输入详细地址">
+			    </div>
+				<div class="mui-checkbox protocol">
+				  	<input name="protocol" value="Item 1" type="checkbox">
+				  	<span>同意&laquo;<a href="#" title="同乡好运用户协议">同乡好运用户协议</a>&raquo;</span>
+				</div>
+			    <div class="mui-button-row hometown-handle">
+			        <button type="submit" class="mui-btn mui-btn-outlined hometown-submit">确认</button>
+			    </div>
+			</form>
+		</div>
+    	
+    	<script src="scripts/jquery.min.js"></script>
+		<script src="scripts/data.city.js"></script>
+		<script src="scripts/mui.js"></script>
+		<script src="scripts/mui.picker.min.js"></script>
+		<script>
+			(function() {
+				mui.init({
+					
+				});
+				
+				//选择省市区
+				var city_picker = new mui.PopPicker({
+					layer:3 // 显示列数，这里显示省市区3列
+				});
+				city_picker.setData(init_city_picker);
+				$("#areaContainer").on("tap", function(){
+					city_picker.show(function(items){
+						$("#area").val((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+					});
+				});
+
+			})();
+		</script>
+	</body>
+</html>
