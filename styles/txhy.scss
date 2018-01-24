@@ -79,60 +79,75 @@
     text-align: center;
 }
 .hometown-form {
+    $height: 40px;
     margin-top: 2rem;
     > div {
-        border-bottom: 1px solid #ccc;
         margin-bottom: 15px;
-        display: -webkit-flex;
-        display: flex;
-        height: 40px;
-        line-height: 39px;
-        -webkit-flex-direction: row;
-                flex-direction: row;
-        -webkit-align-items: center;
-                align-items: center;
-        label {
-            height: 39px;
-            line-height: 39px;
-            font-size: 14px;
-            padding-right: 1em;
-            padding-left: 1em;
-            &.required {
-                position: relative;
-                &::before {
-                    position: absolute;
-                    left: 0.4em;
-                    content: "*";
-                    color: #f00;
-                    font-size: 1em;
+        @extend .clearfix;
+        &.input-div {            
+            border-bottom: 1px solid #ccc;
+            height: $height;
+            line-height: $height - 1;
+            label {
+                display: block;
+                float: left;
+                width: 6em;
+                height: 39px;
+                line-height: 39px;
+                font-size: 14px;
+                padding-right: 1em;
+                padding-left: 1em;
+                &.required {
+                    position: relative;
+                    &::before {
+                        position: absolute;
+                        left: 0.4em;
+                        content: "*";
+                        color: #f00;
+                        font-size: 1em;
+                    }
+                }
+            }
+            input {
+                display: block;
+                float: left;
+                width: calc(100% - 6em);
+                border: none;
+                height: 39px;
+                line-height: 39px;
+                font-size: $font-size;
+                color: #ccc;
+                background-color: transparent;
+                padding: 0 1em;
+                margin-bottom: 0;
+                border-radius: 0;
+                &:focus {
+                    color: $text-color;
                 }
             }
         }
-        input {
-            border: none;
-            height: 39px;
-            line-height: 39px;
-            -webkit-flex: 1;
-            flex: 1;
-            font-size: $font-size;
-            color: #ccc;
-            background-color: transparent;
-            padding: 0 1em;
-            margin-bottom: 0;
-            border-radius: 0;
-            &:focus {
-                color: $text-color;
-            }
+    }
+    .hometown-handle {
+        margin-top: 1.5rem;
+        .hometown-submit {
+            padding: 10px 28px;
         }
-        &.hometown-handle {
-            margin-top: 1.5rem;
-            border-bottom: none;
-            .hometown-submit {
-                padding: 10px 28px;
-            }
+    }
+    .protocol {
+        @extend .clearfix;
+        height: $height;
+        line-height: $height;
+        padding-right: 1em;
+        padding-left: 1em;
+        font-size: 14px;
+        input[type='checkbox'] {
+            top: 2px;
+            left: 1em;
         }
-        &.protocol {
-            border-bottom: none;
+        span {
+            display: block;
+            float: left;
+            margin-left: 2.6em;
         }
     }
 }

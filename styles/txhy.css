@@ -300,11 +300,11 @@ ul {
 }
 
 /* ===关于浮动=== */
-.clearfix::after {
+.clearfix::after, .hometown-form > div::after, .hometown-form .protocol::after {
   content: "";
   display: table;
 }
-.clearfix:after {
+.clearfix:after, .hometown-form > div:after, .hometown-form .protocol:after {
   content: "";
   display: table;
   clear: both;
@@ -404,40 +404,40 @@ label {
   margin-top: 2rem;
 }
 .hometown-form > div {
-  border-bottom: 1px solid #ccc;
   margin-bottom: 15px;
-  display: -webkit-flex;
-  display: flex;
+}
+.hometown-form > div.input-div {
+  border-bottom: 1px solid #ccc;
   height: 40px;
   line-height: 39px;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
 }
-.hometown-form > div label {
+.hometown-form > div.input-div label {
+  display: block;
+  float: left;
+  width: 6em;
   height: 39px;
   line-height: 39px;
   font-size: 14px;
   padding-right: 1em;
   padding-left: 1em;
 }
-.hometown-form > div label.required {
+.hometown-form > div.input-div label.required {
   position: relative;
 }
-.hometown-form > div label.required::before {
+.hometown-form > div.input-div label.required::before {
   position: absolute;
   left: 0.4em;
   content: "*";
   color: #f00;
   font-size: 1em;
 }
-.hometown-form > div input {
+.hometown-form > div.input-div input {
+  display: block;
+  float: left;
+  width: calc(100% - 6em);
   border: none;
   height: 39px;
   line-height: 39px;
-  -webkit-flex: 1;
-  flex: 1;
   font-size: 14px;
   color: #ccc;
   background-color: transparent;
@@ -445,18 +445,30 @@ label {
   margin-bottom: 0;
   border-radius: 0;
 }
-.hometown-form > div input:focus {
+.hometown-form > div.input-div input:focus {
   color: #333;
 }
-.hometown-form > div.hometown-handle {
+.hometown-form .hometown-handle {
   margin-top: 1.5rem;
-  border-bottom: none;
 }
-.hometown-form > div.hometown-handle .hometown-submit {
+.hometown-form .hometown-handle .hometown-submit {
   padding: 10px 28px;
 }
-.hometown-form > div.protocol {
-  border-bottom: none;
+.hometown-form .protocol {
+  height: 40px;
+  line-height: 40px;
+  padding-right: 1em;
+  padding-left: 1em;
+  font-size: 14px;
+}
+.hometown-form .protocol input[type='checkbox'] {
+  top: 2px;
+  left: 1em;
+}
+.hometown-form .protocol span {
+  display: block;
+  float: left;
+  margin-left: 2.6em;
 }
 
 /*# sourceMappingURL=txhy.css.map */
