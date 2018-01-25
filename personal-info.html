@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>个人资料 | 同乡好运</title>
+        <meta name="keywords" content="同乡好运">
+        <meta name="description" content="同乡好运">
+		<link href="styles/mui.css" rel="stylesheet" />
+		<link href="styles/mui.picker.min.css" rel="stylesheet" />
+		<link href="styles/txhy.css" rel="stylesheet"/>
+    </head>
+    <body>
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    	    <h1 class="mui-title">个人资料</h1>
+    	</header>
+    	
+    	<nav class="mui-bar mui-bar-tab">
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-home"></span>
+    	        <span class="mui-tab-label">本地</span>
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-chatbubble"></span>
+    	        <span class="mui-tab-label">动态</span>
+    	    </a>
+    	    <a class="mui-tab-item mui-active">
+    	        <span class="mui-icon mui-icon-person"></span>
+    	        <span class="mui-tab-label">我的</span>
+    	    </a>
+    	</nav>
+    	
+    	<div class="mui-content">
+			<form action="" method="post" id="personalInfoForm" class="personal-info-form">
+			    <div class="name">
+			        <label for="name" class="required">姓名</label>
+			    	<input type="text" id="name" name="name" placeholder="请输入姓名">
+			    </div>
+				<div class="phone">
+					<label for="phone" class="required">联系电话</label>
+					<input type="text" id="phone" name="phone" placeholder="请输入联系电话">
+					<!-- 简洁模式开关打开状态 -->
+					<div class="mui-switch mui-switch-mini mui-active">
+						<div class="mui-switch-handle"></div>
+					</div>
+					<span>是否保密</span>
+				</div>
+				<div class="profession">
+					<label for="profession" class="required">所在行业</label>
+					<select name="profession" id="profession">
+						<option value="0">农、林、牧渔业</option>
+						<option value="1">采矿业</option>
+						<option value="2">制造业</option>
+						<option value="3">电力、热燃气及水生产和供应业</option>
+						<option value="4">建筑业</option>
+						<option value="5">批发和零售业</option>
+						<option value="6">交通运输、仓储和邮政业</option>
+						<option value="7">住宿和餐饮业</option>
+						<option value="8">信息传输、软件和信息技术服务业</option>
+						<option value="9">金融业</option>
+						<option value="10">房地产业</option>
+						<option value="11">租赁和商务服务业</option>
+						<option value="12">科学研究和技术服务业</option>
+						<option value="13">水利、环境和公共设施管理业</option>
+						<option value="14">居民服务、修理和其他服务业</option>
+						<option value="15">教育</option>
+						<option value="16">卫生和社会工作</option>
+						<option value="17">文化、体育和娱乐业</option>
+						<option value="18">共公管理、社会保障和社会组织</option>
+						<option value="19">国际组织</option>
+					</select>
+				</div>
+				<div class="product">
+					<label for="product" class="required">产品信息</label>
+					<input type="text" id="product" name="product" placeholder="请输入产品信息">
+				</div>
+				<div class="intro">
+					<label for="intro" class="required">公司产品个人介绍</label>
+					<textarea name="intro" id="intro" placeholder="请输入公司产品或个人介绍"></textarea>
+				</div>
+				<div class="discounts">
+					<label for="discounts" class="required">优惠信息</label>
+					<textarea name="discounts" id="discounts" placeholder="请输入优惠信息"></textarea>
+				</div>
+			    <div class="mui-button-row hometown-handle">
+			        <button type="submit" class="mui-btn mui-btn-outlined hometown-submit">保存</button>
+			    </div>
+			</form>
+		</div>
+    	
+		<script src="scripts/data.city.js"></script>
+		<script src="scripts/mui.js"></script>
+		<script src="scripts/mui.picker.min.js"></script>
+		<script>
+			(function() {
+				mui.init({
+					
+				});
+
+			})();
+		</script>
+	</body>
+</html>
