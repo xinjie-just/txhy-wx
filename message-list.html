@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>动态| 同乡好运</title>
+        <meta name="keywords" content="同乡好运">
+        <meta name="description" content="同乡好运">
+		<link href="styles/mui.css" rel="stylesheet" />
+		<link href="styles/mui.picker.min.css" rel="stylesheet" />
+		<link href="styles/txhy.css" rel="stylesheet"/>
+    </head>
+    <body>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">动态</h1>
+		</header>
+    	
+    	<nav class="mui-bar mui-bar-tab">
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-home"></span>
+    	        <span class="mui-tab-label">本地</span>
+    	    </a>
+    	    <a class="mui-tab-item mui-active">
+    	        <span class="mui-icon mui-icon-chatbubble"></span>
+    	        <span class="mui-tab-label">动态</span>
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon mui-icon-person"></span>
+    	        <span class="mui-tab-label">我的</span>
+    	    </a>
+    	</nav>
+    	
+    	<div class="mui-content">
+			<form action="" method="post" id="addressForm" name="addressForm" class="address-form">
+				<div class="area" id="areaContainer">
+					<label for="area">所在地区</label>
+					<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
+				</div>
+			</form>
+			<ul class="msg-list">
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="msg-heading">招聘信息</span>
+						<time>2017-12-26</time>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="msg-heading">招聘信息</span>
+						<time>2017-12-26</time>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="msg-heading">招聘信息</span>
+						<time>2017-12-26</time>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<script src="scripts/jquery.min.js"></script>
+		<script src="scripts/data.city.js"></script>
+		<script src="scripts/mui.js"></script>
+		<script src="scripts/mui.picker.min.js"></script>
+		<script>
+			(function() {
+				mui.init({
+					
+				});
+
+                //选择省市区
+                var city_picker = new mui.PopPicker({
+                    layer:2 // 显示列数，这里显示省市区3列
+                });
+                city_picker.setData(init_city_picker);
+                $("#areaContainer").on("tap", function(){
+                    city_picker.show(function(items){
+                        $("#area").val((items[0] || {}).text + " " + (items[1] || {}).text);
+                    });
+                });
+			})();
+		</script>
+	</body>
+</html>

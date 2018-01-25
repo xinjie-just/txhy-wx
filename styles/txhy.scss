@@ -353,3 +353,162 @@
         }
     }
 }
+
+/*===个人动态管理===*/
+.personal-message-table {
+    $height: 36px;
+    width: 100%;
+    table-layout: fixed;
+    thead {
+        tr {
+            background-color: #ccc;
+            height: $height + 6;
+            line-height: $height + 6;
+            box-sizing: content-box;
+            th {
+                font-size: 14px;
+                color: $font-size;
+                padding-right: .5rem;
+                padding-left: .5rem;
+                @extend %ellipsis;
+                &:nth-of-type(2) {
+                    width: 90px;
+                }
+                &:nth-of-type(3) {
+                    width: 126px;
+                }
+            }
+        }
+    }
+    tbody {
+        tr {
+            height: $height;
+            line-height: $height;
+            box-sizing: content-box;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid #acacac;
+            }
+            td {
+                font-size: $font-size - 2;
+                color: $text-color;
+                padding-right: .5rem;
+                padding-left: .5rem;
+                @extend %ellipsis;
+                &:nth-of-type(2) {
+                    width: 90px;
+                }
+                &:nth-of-type(3) {
+                    width: 126px;
+                    font-size: 0;
+                }
+                span {
+                    vertical-align: middle;
+                    font-size: $font-size - 2;
+                    border-radius: 2px;
+                    padding: 2px 4px;
+                    border: 1px solid #ccc;
+                    &:not(:last-of-type) {
+                        margin-right: .3em;
+                    }
+                    i {
+                        font-size: $font-size + 2;
+                        margin-right: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*===动态列表===*/
+.address-form {
+    $height: 40px;
+    margin-top: 1rem;
+    .area {
+        @extend .clearfix;
+        background-color: #fff;
+        height: $height;
+        line-height: $height - 1;
+        label {
+            display: block;
+            float: left;
+            width: 6em;
+            height: $height - 1;
+            line-height: $height - 1;
+            font-size: 14px;
+            padding-right: 1em;
+            padding-left: 1em;
+        }
+        input {
+            display: block;
+            float: left;
+            width: calc(100% - 6em);
+            border: none;
+            height: $height - 1;
+            line-height: $height - 1;
+            font-size: $font-size;
+            color: #ccc;
+            background-color: transparent;
+            padding: 0 1em;
+            margin-bottom: 0;
+            border-radius: 0;
+            &:focus {
+                color: $text-color;
+            }
+        }
+    }
+}
+.msg-list {
+    margin-top: 1rem;
+    li {
+        a {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: center;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        &:first-of-type {
+            a {
+                border-top: 1px solid #ccc;
+            }
+        }
+    }
+    img {
+        display: block;
+        font-size: 12px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 10px;
+        box-sizing: content-box;
+        @extend %ellipsis;
+    }
+    .name {
+        display: block;
+        font-size: 12px;
+        width: 60px;
+        padding-right: 5px;
+        padding-left: 5px;
+        @extend %ellipsis;
+    }
+    .msg-heading {
+        display: block;
+        font-size: 12px;
+        -webkit-flex: 1;
+                 flex: 1;
+        padding-right: 5px;
+        padding-left: 5px;
+        @extend %ellipsis;
+    }
+    time {
+        display: block;
+        font-size: 12px;
+        width: 80px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}

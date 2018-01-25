@@ -300,11 +300,11 @@ ul {
 }
 
 /* ===关于浮动=== */
-.clearfix::after, .hometown-form > div::after, .hometown-form .protocol::after {
+.clearfix::after, .hometown-form > div::after, .hometown-form .protocol::after, .address-form .area::after {
   content: "";
   display: table;
 }
-.clearfix:after, .hometown-form > div:after, .hometown-form .protocol:after {
+.clearfix:after, .hometown-form > div:after, .hometown-form .protocol:after, .address-form .area:after {
   content: "";
   display: table;
   clear: both;
@@ -330,7 +330,7 @@ label {
   cursor: pointer;
 }
 
-.personal-info-form > div select option {
+.personal-info-form > div select option, .personal-message-table thead tr th, .personal-message-table tbody tr td, .msg-list img, .msg-list .name, .msg-list .msg-heading {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -670,6 +670,150 @@ label {
 }
 .message-form .message-handle .message-submit {
   padding: 10px 28px;
+}
+
+/*===个人动态管理===*/
+.personal-message-table {
+  width: 100%;
+  table-layout: fixed;
+}
+.personal-message-table thead tr {
+  background-color: #ccc;
+  height: 42px;
+  line-height: 42px;
+  box-sizing: content-box;
+}
+.personal-message-table thead tr th {
+  font-size: 14px;
+  color: 14px;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+.personal-message-table thead tr th:nth-of-type(2) {
+  width: 90px;
+}
+.personal-message-table thead tr th:nth-of-type(3) {
+  width: 126px;
+}
+.personal-message-table tbody tr {
+  height: 36px;
+  line-height: 36px;
+  box-sizing: content-box;
+}
+.personal-message-table tbody tr:not(:last-of-type) {
+  border-bottom: 1px solid #acacac;
+}
+.personal-message-table tbody tr td {
+  font-size: 12px;
+  color: #333;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+.personal-message-table tbody tr td:nth-of-type(2) {
+  width: 90px;
+}
+.personal-message-table tbody tr td:nth-of-type(3) {
+  width: 126px;
+  font-size: 0;
+}
+.personal-message-table tbody tr td span {
+  vertical-align: middle;
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+}
+.personal-message-table tbody tr td span:not(:last-of-type) {
+  margin-right: .3em;
+}
+.personal-message-table tbody tr td span i {
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+/*===动态列表===*/
+.address-form {
+  margin-top: 1rem;
+}
+.address-form .area {
+  background-color: #fff;
+  height: 40px;
+  line-height: 39px;
+}
+.address-form .area label {
+  display: block;
+  float: left;
+  width: 6em;
+  height: 39px;
+  line-height: 39px;
+  font-size: 14px;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+.address-form .area input {
+  display: block;
+  float: left;
+  width: calc(100% - 6em);
+  border: none;
+  height: 39px;
+  line-height: 39px;
+  font-size: 14px;
+  color: #ccc;
+  background-color: transparent;
+  padding: 0 1em;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.address-form .area input:focus {
+  color: #333;
+}
+
+.msg-list {
+  margin-top: 1rem;
+}
+.msg-list li a {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.msg-list li:first-of-type a {
+  border-top: 1px solid #ccc;
+}
+.msg-list img {
+  display: block;
+  font-size: 12px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+  box-sizing: content-box;
+}
+.msg-list .name {
+  display: block;
+  font-size: 12px;
+  width: 60px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.msg-list .msg-heading {
+  display: block;
+  font-size: 12px;
+  -webkit-flex: 1;
+  flex: 1;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.msg-list time {
+  display: block;
+  font-size: 12px;
+  width: 80px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 /*# sourceMappingURL=txhy.css.map */
