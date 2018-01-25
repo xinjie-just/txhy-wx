@@ -36,6 +36,7 @@
 				<div class="area" id="areaContainer">
 					<label for="area">所在地区</label>
 					<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
+					<i class="mui-icon mui-icon-arrowright"></i>
 				</div>
 			</form>
 			<ul class="msg-list">
@@ -73,12 +74,12 @@
 		<script>
 			(function() {
 				mui.init({
-					
+
 				});
 
                 //选择省市区
                 var city_picker = new mui.PopPicker({
-                    layer:2 // 显示列数，这里显示省市区3列
+                    layer:2 // 显示列数，这里显示省市2列
                 });
                 city_picker.setData(init_city_picker);
                 $("#areaContainer").on("tap", function(){

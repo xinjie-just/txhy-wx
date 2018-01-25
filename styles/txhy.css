@@ -300,11 +300,11 @@ ul {
 }
 
 /* ===关于浮动=== */
-.clearfix::after, .hometown-form > div::after, .hometown-form .protocol::after, .address-form .area::after {
+.clearfix::after, .hometown-form > div::after, .hometown-form .protocol::after, .personal-message-table tbody tr td::after, .address-form .area::after {
   content: "";
   display: table;
 }
-.clearfix:after, .hometown-form > div:after, .hometown-form .protocol:after, .address-form .area:after {
+.clearfix:after, .hometown-form > div:after, .hometown-form .protocol:after, .personal-message-table tbody tr td:after, .address-form .area:after {
   content: "";
   display: table;
   clear: both;
@@ -330,7 +330,8 @@ label {
   cursor: pointer;
 }
 
-.personal-info-form > div select option, .personal-message-table thead tr th, .personal-message-table tbody tr td, .msg-list img, .msg-list .name, .msg-list .msg-heading {
+.personal-info-form > div select option, .personal-message-table tr th,
+.personal-message-table tr td, .msg-list img, .msg-list .name, .msg-list .msg-heading {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -398,7 +399,7 @@ label {
 
 /*===家乡信息===*/
 .hometown-heading {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.2;
   color: #333;
   margin-top: 2rem;
@@ -420,7 +421,7 @@ label {
 .hometown-form > div.input-div label {
   display: block;
   float: left;
-  width: 6em;
+  width: 6.2em;
   height: 39px;
   line-height: 39px;
   font-size: 14px;
@@ -440,19 +441,26 @@ label {
 .hometown-form > div.input-div input {
   display: block;
   float: left;
-  width: calc(100% - 6em);
+  width: calc(100% - 10.2em);
   border: none;
   height: 39px;
   line-height: 39px;
   font-size: 14px;
-  color: #ccc;
   background-color: transparent;
-  padding: 0 1em;
   margin-bottom: 0;
   border-radius: 0;
 }
 .hometown-form > div.input-div input:focus {
   color: #333;
+}
+.hometown-form > div.input-div .mui-icon {
+  display: block;
+  float: right;
+  width: 2em;
+  height: 39px;
+  line-height: 39px;
+  text-align: center;
+  font-size: 22px;
 }
 .hometown-form .hometown-handle {
   margin-top: 1.5rem;
@@ -677,54 +685,52 @@ label {
   width: 100%;
   table-layout: fixed;
 }
-.personal-message-table thead tr {
-  background-color: #ccc;
-  height: 42px;
-  line-height: 42px;
+.personal-message-table tr {
   box-sizing: content-box;
 }
-.personal-message-table thead tr th {
-  font-size: 14px;
-  color: 14px;
-  padding-right: .5rem;
-  padding-left: .5rem;
-}
-.personal-message-table thead tr th:nth-of-type(2) {
-  width: 90px;
-}
-.personal-message-table thead tr th:nth-of-type(3) {
-  width: 126px;
-}
-.personal-message-table tbody tr {
-  height: 36px;
-  line-height: 36px;
-  box-sizing: content-box;
-}
-.personal-message-table tbody tr:not(:last-of-type) {
-  border-bottom: 1px solid #acacac;
-}
-.personal-message-table tbody tr td {
-  font-size: 12px;
+.personal-message-table tr th,
+.personal-message-table tr td {
   color: #333;
   padding-right: .5rem;
   padding-left: .5rem;
 }
-.personal-message-table tbody tr td:nth-of-type(2) {
+.personal-message-table tr th:nth-of-type(2),
+.personal-message-table tr td:nth-of-type(2) {
   width: 90px;
 }
-.personal-message-table tbody tr td:nth-of-type(3) {
+.personal-message-table tr th:nth-of-type(3),
+.personal-message-table tr td:nth-of-type(3) {
   width: 126px;
-  font-size: 0;
+}
+.personal-message-table thead tr {
+  background-color: #ccc;
+  height: 44px;
+  line-height: 44px;
+}
+.personal-message-table thead tr th {
+  font-size: 14px;
+}
+.personal-message-table tbody tr {
+  height: 38px;
+  line-height: 38px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.personal-message-table tbody tr td {
+  font-size: 12px;
 }
 .personal-message-table tbody tr td span {
-  vertical-align: middle;
+  display: block;
+  float: left;
   font-size: 12px;
   border-radius: 2px;
-  padding: 2px 4px;
+  text-align: center;
+  width: 52px;
+  height: 26px;
+  line-height: 24px;
   border: 1px solid #ccc;
 }
 .personal-message-table tbody tr td span:not(:last-of-type) {
-  margin-right: .3em;
+  margin-right: 4px;
 }
 .personal-message-table tbody tr td span i {
   font-size: 16px;
@@ -736,36 +742,37 @@ label {
   margin-top: 1rem;
 }
 .address-form .area {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
   background-color: #fff;
   height: 40px;
   line-height: 39px;
+  font-size: 14px;
 }
 .address-form .area label {
-  display: block;
-  float: left;
-  width: 6em;
-  height: 39px;
-  line-height: 39px;
-  font-size: 14px;
   padding-right: 1em;
   padding-left: 1em;
 }
 .address-form .area input {
   display: block;
-  float: left;
-  width: calc(100% - 6em);
   border: none;
-  height: 39px;
-  line-height: 39px;
-  font-size: 14px;
-  color: #ccc;
   background-color: transparent;
-  padding: 0 1em;
   margin-bottom: 0;
   border-radius: 0;
+  -webkit-flex: 1;
+  flex: 1;
 }
 .address-form .area input:focus {
   color: #333;
+}
+.address-form .area .mui-icon {
+  padding-right: .5em;
+  padding-left: .5em;
+  font-size: 22px;
 }
 
 .msg-list {

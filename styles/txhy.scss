@@ -71,7 +71,7 @@
 
 /*===家乡信息===*/
 .hometown-heading {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.2;
     color: #333;
     margin-top: 2rem;
@@ -91,7 +91,7 @@
             label {
                 display: block;
                 float: left;
-                width: 6em;
+                width: 6.2em;
                 height: $height - 1;
                 line-height: $height - 1;
                 font-size: 14px;
@@ -111,19 +111,26 @@
             input {
                 display: block;
                 float: left;
-                width: calc(100% - 6em);
+                width: calc(100% - 10.2em);
                 border: none;
                 height: $height - 1;
                 line-height: $height - 1;
                 font-size: $font-size;
-                color: #ccc;
                 background-color: transparent;
-                padding: 0 1em;
                 margin-bottom: 0;
                 border-radius: 0;
                 &:focus {
                     color: $text-color;
                 }
+            }
+            .mui-icon {
+                display: block;
+                float: right;
+                width: 2em;
+                height: $height - 1;
+                line-height: $height - 1;
+                text-align: center;
+                font-size: $font-size + 8;
             }
         }
     }
@@ -356,27 +363,32 @@
 
 /*===个人动态管理===*/
 .personal-message-table {
-    $height: 36px;
+    $height: 38px;
     width: 100%;
     table-layout: fixed;
+    tr {
+        box-sizing: content-box;
+        th,
+        td {
+            color: $text-color;
+            padding-right: .5rem;
+            padding-left: .5rem;
+            @extend %ellipsis;
+            &:nth-of-type(2) {
+                width: 90px;
+            }
+            &:nth-of-type(3) {
+                width: 126px;
+            }
+        }
+    }
     thead {
         tr {
             background-color: #ccc;
             height: $height + 6;
             line-height: $height + 6;
-            box-sizing: content-box;
             th {
-                font-size: 14px;
-                color: $font-size;
-                padding-right: .5rem;
-                padding-left: .5rem;
-                @extend %ellipsis;
-                &:nth-of-type(2) {
-                    width: 90px;
-                }
-                &:nth-of-type(3) {
-                    width: 126px;
-                }
+                font-size: $font-size;
             }
         }
     }
@@ -384,31 +396,22 @@
         tr {
             height: $height;
             line-height: $height;
-            box-sizing: content-box;
-            &:not(:last-of-type) {
-                border-bottom: 1px solid #acacac;
-            }
+            border-bottom: 1px solid #dfdfdf;
             td {
                 font-size: $font-size - 2;
-                color: $text-color;
-                padding-right: .5rem;
-                padding-left: .5rem;
-                @extend %ellipsis;
-                &:nth-of-type(2) {
-                    width: 90px;
-                }
-                &:nth-of-type(3) {
-                    width: 126px;
-                    font-size: 0;
-                }
+                @extend .clearfix;
                 span {
-                    vertical-align: middle;
+                    display: block;
+                    float: left;
                     font-size: $font-size - 2;
                     border-radius: 2px;
-                    padding: 2px 4px;
+                    text-align: center;
+                    width: 52px;
+                    height: 26px;
+                    line-height: 24px;
                     border: 1px solid #ccc;
                     &:not(:last-of-type) {
-                        margin-right: .3em;
+                        margin-right: 4px;
                     }
                     i {
                         font-size: $font-size + 2;
@@ -425,36 +428,37 @@
     $height: 40px;
     margin-top: 1rem;
     .area {
-        @extend .clearfix;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+                 flex-direction: row;
+        -webkit-align-items: center;
+                 align-items: center;
         background-color: #fff;
         height: $height;
         line-height: $height - 1;
+        font-size: $font-size;
+        @extend .clearfix;
         label {
-            display: block;
-            float: left;
-            width: 6em;
-            height: $height - 1;
-            line-height: $height - 1;
-            font-size: 14px;
             padding-right: 1em;
             padding-left: 1em;
         }
         input {
             display: block;
-            float: left;
-            width: calc(100% - 6em);
             border: none;
-            height: $height - 1;
-            line-height: $height - 1;
-            font-size: $font-size;
-            color: #ccc;
             background-color: transparent;
-            padding: 0 1em;
             margin-bottom: 0;
             border-radius: 0;
+            -webkit-flex: 1;
+                     flex: 1;
             &:focus {
                 color: $text-color;
             }
+        }
+        .mui-icon {
+            padding-right: .5em;
+            padding-left: .5em;
+            font-size: $font-size + 8;
         }
     }
 }
