@@ -92,8 +92,8 @@
                 display: block;
                 float: left;
                 width: 6em;
-                height: 39px;
-                line-height: 39px;
+                height: $height - 1;
+                line-height: $height - 1;
                 font-size: 14px;
                 padding-right: 1em;
                 padding-left: 1em;
@@ -113,8 +113,8 @@
                 float: left;
                 width: calc(100% - 6em);
                 border: none;
-                height: 39px;
-                line-height: 39px;
+                height: $height - 1;
+                line-height: $height - 1;
                 font-size: $font-size;
                 color: #ccc;
                 background-color: transparent;
@@ -148,6 +148,208 @@
             display: block;
             float: left;
             margin-left: 2.6em;
+        }
+    }
+}
+
+/*===个人资料===*/
+.personal-info-form {
+    $height: 40px;
+    margin-top: 1rem;
+    padding-right: 1em;
+    > div {
+        margin-bottom: 15px;
+        font-size: 0;
+        label {
+            display: inline-block;
+            vertical-align: middle;
+            width: 6em;
+            height: $height;
+            line-height: $height;
+            font-size: $font-size;
+            color: $text-color;
+            padding-right: 1em;
+            padding-left: 1em;
+            &.required {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    left: 0.4em;
+                    content: "*";
+                    color: #f00;
+                    font-size: 1em;
+                }
+            }
+        }
+        &.intro {
+            label {
+                line-height: 1.5;
+            }
+        }
+        input {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 6em);
+            height: $height;
+            line-height: $height - 2;
+            font-size: $font-size;
+            color: #ccc;
+            border: 1px solid;
+            background-color: transparent;
+            padding: 0 1em;
+            margin-bottom: 0;
+            &:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }
+        }
+        &.phone {
+            input {
+                width: calc(100% - 14em);
+                margin-right: .5em;
+            }
+            .phone-switch {
+                display: inline-block;
+                vertical-align: middle;
+                width: 40px;
+                height: 24px;
+                .phone-switch-handle {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                height: $height;
+                line-height: $height;
+                font-size: $font-size - 2;
+                margin-left: .5em;
+            }
+        }
+        textarea {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 6em);
+            min-height: $height * 3;
+            max-height: $height * 3;
+            overflow-y: auto;
+            line-height: 1.5;
+            padding: 0.25em 1em;
+            font-size: $font-size;
+            color: #ccc;
+            border: 1px solid;
+            background-color: transparent;
+            &:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }
+        }
+        select {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 6em);
+            height: $height;
+            line-height: $height - 2;
+            padding: 0 1em;
+            font-size: $font-size;
+            color: #ccc;
+            border: 1px solid !important;
+            background-color: transparent;
+            cursor: pointer;
+            -webkit-appearance: menulist;
+            &:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }
+            option {
+                font-size: $font-size - 2;
+                line-height: 1.5;
+                color: $text-color;
+                @extend %ellipsis;
+            }
+        }
+    }
+    .personal-info-handle {
+        margin-top: 1rem;
+        .personal-info-submit {
+            padding: 10px 28px;
+        }
+    }
+}
+
+/*===发布动态===*/
+.message-form {
+    $height: 40px;
+    margin-top: 2rem;
+    padding: 0 .5em;
+    color: $text-color;
+    font-size: $font-size;
+    > div {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        margin-bottom: 15px;
+        label {
+            width: 6em;
+            height: $height;
+            line-height: $height;
+            font-size: 14px;
+            padding-right: 1em;
+            padding-left: 1em;
+            &.required {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    left: 0.4em;
+                    content: "*";
+                    color: #f00;
+                    font-size: 1em;
+                }
+            }
+        }
+        input {
+            -webkit-flex: 1;
+            flex: 1;
+            height: $height;
+            line-height: $height - 2;
+            overflow-y: auto;
+            padding: .25em .5em;
+            font-size: $font-size;
+            color: #ccc;
+            border: 1px solid;
+            margin-bottom: 0;
+            &:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }
+        }
+        textarea {
+            -webkit-flex: 1;
+            flex: 1;
+            min-height: 120px;
+            max-height: 150px;
+            line-height: 1.6em;
+            overflow-y: auto;
+            padding: .25em .5em;
+            font-size: $font-size;
+            color: #ccc;
+            border: 1px solid;
+            &:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }
+        }
+    }
+    .message-handle {
+        display: block;
+        margin-top: 1.5rem;
+        text-align: center;
+        .message-submit {
+            padding: 10px 28px;
         }
     }
 }

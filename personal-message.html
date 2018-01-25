@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <title>家乡信息 | 同乡好运</title>
+        <title>个人动态管理 | 同乡好运</title>
         <meta name="keywords" content="同乡好运">
         <meta name="description" content="同乡好运">
 		<link href="styles/mui.css" rel="stylesheet" />
@@ -15,6 +15,7 @@
     	<header class="mui-bar mui-bar-nav">
     	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     	    <h1 class="mui-title">家乡信息</h1>
+			<a class="mui-action-add mui-icon mui-icon-plusempty mui-icon-right-nav mui-pull-right"></a>
     	</header>
     	
     	<nav class="mui-bar mui-bar-tab">
@@ -33,24 +34,49 @@
     	</nav>
     	
     	<div class="mui-content">
-    		<h1 class="hometown-heading">请填写家乡信息</h1>
-			<form action="" method="post" id="hometownForm" name="hometownForm" class="hometown-form">
-			    <div class="input-div area" id="areaContainer">
-			        <label for="area" class="required">所在地区</label>
-			    	<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
-			    </div>
-			    <div class="input-div address">
-			        <label for="address" class="required">详细地址</label>
-			        <input type="text" id="address" name="address" class="mui-input-clear mui-input-speech" placeholder="请输入详细地址">
-			    </div>
-				<div class="mui-checkbox mui-left protocol">
-				  	<input name="protocol" type="checkbox">
-				  	<span>同意&laquo;<a href="#" title="同乡好运用户协议">同乡好运用户协议</a>&raquo;</span>
-				</div>
-			    <div class="mui-button-row hometown-handle">
-			        <button type="submit" class="mui-btn mui-btn-outlined hometown-submit">确认</button>
-			    </div>
-			</form>
+    		<table>
+				<thead>
+					<tr>
+						<th>主题</th>
+						<th>日期</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>招聘信息</td>
+						<td>2017-12-26</td>
+						<td>
+							<span><i class="mui-icon mui-icon-compose"></i>修改</span>
+							<span><i class="mui-icon mui-icon-trash"></i>删除</span>
+						</td>
+					</tr>
+					<tr>
+						<td>供应信息</td>
+						<td>2017-12-25</td>
+						<td>
+							<span><i class="mui-icon mui-icon-compose"></i>修改</span>
+							<span><i class="mui-icon mui-icon-trash"></i>删除</span>
+						</td>
+					</tr>
+					<tr>
+						<td>需求信息</td>
+						<td>2017-12-24</td>
+						<td>
+							<span><i class="mui-icon mui-icon-compose"></i>修改</span>
+							<span><i class="mui-icon mui-icon-trash"></i>删除</span>
+						</td>
+					</tr>
+					<tr>
+						<td>投资信息</td>
+						<td>2017-12-23</td>
+						<td>
+							<span><i class="mui-icon mui-icon-compose"></i>修改</span>
+							<span><i class="mui-icon mui-icon-trash"></i>删除</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
     	
 		<script src="scripts/data.city.js"></script>

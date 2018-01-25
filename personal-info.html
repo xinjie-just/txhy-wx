@@ -8,7 +8,6 @@
         <meta name="keywords" content="同乡好运">
         <meta name="description" content="同乡好运">
 		<link href="styles/mui.css" rel="stylesheet" />
-		<link href="styles/mui.picker.min.css" rel="stylesheet" />
 		<link href="styles/txhy.css" rel="stylesheet"/>
     </head>
     <body>
@@ -33,7 +32,7 @@
     	</nav>
     	
     	<div class="mui-content">
-			<form action="" method="post" id="personalInfoForm" class="personal-info-form">
+			<form action="" method="post" id="personalInfoForm" name="personalInfoForm" class="personal-info-form">
 			    <div class="name">
 			        <label for="name" class="required">姓名</label>
 			    	<input type="text" id="name" name="name" placeholder="请输入姓名">
@@ -42,8 +41,8 @@
 					<label for="phone" class="required">联系电话</label>
 					<input type="text" id="phone" name="phone" placeholder="请输入联系电话">
 					<!-- 简洁模式开关打开状态 -->
-					<div class="mui-switch mui-switch-mini mui-active">
-						<div class="mui-switch-handle"></div>
+					<div class="mui-switch mui-switch-mini mui-switch-blue mui-active phone-switch">
+						<div class="mui-switch-handle phone-switch-handle"></div>
 					</div>
 					<span>是否保密</span>
 				</div>
@@ -84,8 +83,8 @@
 					<label for="discounts" class="required">优惠信息</label>
 					<textarea name="discounts" id="discounts" placeholder="请输入优惠信息"></textarea>
 				</div>
-			    <div class="mui-button-row hometown-handle">
-			        <button type="submit" class="mui-btn mui-btn-outlined hometown-submit">保存</button>
+			    <div class="mui-button-row personal-info-handle">
+			        <button type="submit" class="mui-btn mui-btn-outlined personal-info-submit">保存</button>
 			    </div>
 			</form>
 		</div>
