@@ -399,6 +399,17 @@ figure {
 label {
   margin-bottom: 0;
   cursor: pointer;
+  &.required {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 2px;
+      left: 0.2em;
+      content: "*";
+      color: #f00;
+      font-size: 1em;
+    }
+  }
 }
 
 %ellipsis {

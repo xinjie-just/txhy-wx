@@ -22,11 +22,11 @@
     	        <span class="mui-icon mui-icon-home"></span>
     	        <span class="mui-tab-label">本地</span>
     	    </a>
-    	    <a class="mui-tab-item mui-active">
+    	    <a class="mui-tab-item">
     	        <span class="mui-icon mui-icon-chatbubble"></span>
     	        <span class="mui-tab-label">动态</span>
     	    </a>
-    	    <a class="mui-tab-item">
+    	    <a class="mui-tab-item mui-active">
     	        <span class="mui-icon mui-icon-person"></span>
     	        <span class="mui-tab-label">我的</span>
     	    </a>
@@ -34,16 +34,17 @@
     	
     	<div class="mui-content">
 			<form action="" method="post" id="messageForm" name="messageForm" class="message-form">
+				<!-- 给必填项添加 input-field 类，同时给 label 添加 required 类 -->
 				<div class="heading">
 					<label for="heading" class="required">主题</label>
-					<input type="text" name="heading" id="heading" placeholder="请输入主题">
+					<input type="text" name="heading" id="heading" class="input-field" placeholder="请输入主题">
 				</div>
 				<div class="content">
 					<label for="content" class="required">动态描述</label>
-					<textarea name="content" id="content" placeholder="请输入动态描述"></textarea>
+					<textarea name="content" id="content" class="input-field" placeholder="请输入动态描述"></textarea>
 				</div>
 				<div class="mui-button-row message-handle">
-					<button type="submit" class="mui-btn mui-btn-outlined message-submit">发布</button>
+					<button type="submit" id="messageSubmit" class="mui-btn mui-btn-outlined message-submit">发布</button>
 				</div>
 			</form>
 		</div>
@@ -52,8 +53,26 @@
 		<script>
 			(function() {
 				mui.init({
-					
 				});
+
+                mui("body").on("tap", "#messageSubmit", function(){
+                    var check = true;
+                    mui("#messageForm .input-field").each(function () {
+                        //若当前input为空，则alert提醒
+                        if (!this.value || this.value.trim() == "") {
+                            var label = this.previousElementSibling;
+                            this.focus();
+                            mui.toast(label.innerText + "不允许为空");
+                            check = false;
+                            return false;
+                        }
+                    });
+                    //校验通过，继续执行业务逻辑
+                    if(check){
+                        mui.toast('验证通过!');
+                    }
+                });
+
 			})();
 		</script>
 	</body>

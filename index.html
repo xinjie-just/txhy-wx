@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <title>本地| 同乡好运</title>
+        <title>本地 | 同乡好运</title>
         <meta name="keywords" content="同乡好运">
         <meta name="description" content="同乡好运">
 		<link href="styles/mui.css" rel="stylesheet" />
@@ -40,7 +40,7 @@
 					<i class="mui-icon mui-icon-arrowright"></i>
 				</div>
 				<div class="profession">
-					<label for="profession" class="required">所在行业</label>
+					<label for="profession">所在行业</label>
 					<select name="profession" id="profession">
 						<option value="0">农、林、牧渔业</option>
 						<option value="1">采矿业</option>
@@ -73,10 +73,10 @@
 				<p>联络处简介：<span>XX联络处是同乡聚会...</span></p>
 				<p>欢迎大家加入...</p>
 			</div>
-			<ul class="local-list">
+			<ul id="localList" class="local-list">
 				<li>
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
 						<span class="name">张三</span>
 						<span class="local-heading">招聘信息</span>
 						<time>2017-12-26</time>
@@ -84,8 +84,8 @@
 					</a>
 				</li>
 				<li>
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
 						<span class="name">张三</span>
 						<span class="local-heading">招聘信息</span>
 						<time>2017-12-26</time>
@@ -93,8 +93,8 @@
 					</a>
 				</li>
 				<li>
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
 						<span class="name">张三</span>
 						<span class="local-heading">招聘信息</span>
 						<time>2017-12-26</time>
@@ -111,8 +111,26 @@
 		<script>
 			(function() {
 				mui.init({
-
+                    pullRefresh : {
+                        container: localList,//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+                        up : {
+                            height: 50,//可选.默认50.触发上拉加载拖动距离
+                            auto: true,//可选,默认false.自动上拉加载一次
+                            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+                            contentnomore: '没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+                            callback: localListPullFresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+                        }
+                    }
 				});
+
+                /*function localListPullFresh() {
+                    // toDoSometing 业务逻辑代码，比如通过ajax从服务器获取新数据；
+
+                    //注意：
+                    //1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+                    //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+                    this.endPullupToRefresh(true|false);
+                }*/
 
                 //选择省市区
                 var city_picker = new mui.PopPicker({
@@ -124,6 +142,7 @@
                         $("#area").val((items[0] || {}).text + " " + (items[1] || {}).text);
                     });
                 });
+
 			})();
 		</script>
 	</body>

@@ -6,14 +6,18 @@
 .mui-content {
     min-height: 100%;
 }
-
-
-
+.mui-toast-container {
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
+}
 
 
 
 /*===投诉建议===*/
 .advise-form {
+    $height: 40px;
     margin-top: 3rem;
     padding: 0 .5em;
     color: $text-color;
@@ -26,27 +30,19 @@
         -webkit-align-items: center;
                 align-items: center;
         label {
-            height: 30px;
-            line-height: 30px;
+            height: $height;
+            line-height: $height;
             font-size: 14px;
             padding-right: 1em;
             padding-left: 1em;
-            &.required {
-                position: relative;
-                &::before {
-                    position: absolute;
-                    left: 0.4em;
-                    content: "*";
-                    color: #f00;
-                    font-size: 1em;
-                }
-            }
+            max-width: 7em;
+            @extend %ellipsis;
         }
         textarea {
             -webkit-flex: 1;
                     flex: 1;
-            min-height: 120px;
-            max-height: 150px;
+            min-height: $height * 3;
+            max-height: $height * 4;
             line-height: 1.6em;
             overflow-y: auto;
             padding: .25em .5em;
@@ -55,7 +51,6 @@
             border: 1px solid;
             &:focus {                
                 color: $text-color;
-                border-color: $text-color;
             } 
                    
         }
@@ -83,35 +78,28 @@
     margin-top: 2rem;
     > div {
         margin-bottom: 15px;
-        @extend .clearfix;
-        &.input-div {            
+        &.input-div {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+                     flex-direction: row;
+            -webkit-align-items: center;
+                     align-items: center;
             border-bottom: 1px solid #ccc;
             height: $height;
             line-height: $height - 1;
             label {
-                display: block;
-                float: left;
                 width: 6.2em;
                 height: $height - 1;
                 line-height: $height - 1;
                 font-size: 14px;
                 padding-right: 1em;
                 padding-left: 1em;
-                &.required {
-                    position: relative;
-                    &::before {
-                        position: absolute;
-                        left: 0.4em;
-                        content: "*";
-                        color: #f00;
-                        font-size: 1em;
-                    }
-                }
+                @extend %ellipsis;
             }
             input {
-                display: block;
-                float: left;
-                width: calc(100% - 10.2em);
+                -webkit-flex: 1;
+                         flex: 1;
                 border: none;
                 height: $height - 1;
                 line-height: $height - 1;
@@ -125,7 +113,6 @@
             }
             .mui-icon {
                 display: block;
-                float: right;
                 width: 2em;
                 height: $height - 1;
                 line-height: $height - 1;
@@ -135,6 +122,8 @@
         }
     }
     .hometown-handle {
+        -webkit-justify-content: center;
+                 justify-content: center;
         margin-top: 1.5rem;
         .hometown-submit {
             padding: 10px 28px;
@@ -163,14 +152,17 @@
 .personal-info-form {
     $height: 40px;
     margin-top: 1rem;
-    padding-right: 1em;
+    padding-right: .5em;
     padding-left: .5em;
     > div {
         margin-bottom: 15px;
-        font-size: 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
         label {
-            display: inline-block;
-            vertical-align: middle;
             width: 6em;
             height: $height;
             line-height: $height;
@@ -178,16 +170,6 @@
             color: $text-color;
             padding-right: 1em;
             padding-left: 1em;
-            &.required {
-                position: relative;
-                &::before {
-                    position: absolute;
-                    left: 0.4em;
-                    content: "*";
-                    color: #f00;
-                    font-size: 1em;
-                }
-            }
         }
         &.intro {
             label {
@@ -195,9 +177,8 @@
             }
         }
         input {
-            display: inline-block;
-            vertical-align: middle;
-            width: calc(100% - 6em);
+            -webkit-flex: 1;
+                     flex: 1;
             height: $height;
             line-height: $height - 2;
             font-size: $font-size;
@@ -208,17 +189,13 @@
             margin-bottom: 0;
             &:focus {
                 color: $text-color;
-                border-color: $text-color;
             }
         }
         &.phone {
             input {
-                width: calc(100% - 14em);
                 margin-right: .5em;
             }
             .phone-switch {
-                display: inline-block;
-                vertical-align: middle;
                 width: 40px;
                 height: 24px;
                 .phone-switch-handle {
@@ -227,20 +204,15 @@
                 }
             }
             span {
-                display: inline-block;
-                vertical-align: middle;
-                height: $height;
-                line-height: $height;
                 font-size: $font-size - 2;
                 margin-left: .5em;
             }
         }
         textarea {
-            display: inline-block;
-            vertical-align: middle;
-            width: calc(100% - 6em);
+            -webkit-flex: 1;
+                     flex: 1;
             min-height: $height * 3;
-            max-height: $height * 3;
+            max-height: $height * 4;
             overflow-y: auto;
             line-height: 1.5;
             padding: 0.25em 1em;
@@ -250,13 +222,11 @@
             background-color: transparent;
             &:focus {
                 color: $text-color;
-                border-color: $text-color;
             }
         }
         select {
-            display: inline-block;
-            vertical-align: middle;
-            width: calc(100% - 6em);
+            -webkit-flex: 1;
+            flex: 1;
             height: $height;
             line-height: $height - 2;
             padding: 0 1em;
@@ -268,7 +238,6 @@
             -webkit-appearance: menulist;
             &:focus {
                 color: $text-color;
-                border-color: $text-color;
             }
             option {
                 font-size: $font-size - 2;
@@ -280,6 +249,8 @@
     }
     .personal-info-handle {
         margin-top: 1rem;
+        -webkit-justify-content: center;
+                 justify-content: center;
         .personal-info-submit {
             padding: 10px 28px;
         }
@@ -308,16 +279,7 @@
             font-size: 14px;
             padding-right: 1em;
             padding-left: 1em;
-            &.required {
-                position: relative;
-                &::before {
-                    position: absolute;
-                    left: 0.4em;
-                    content: "*";
-                    color: #f00;
-                    font-size: 1em;
-                }
-            }
+            @extend %ellipsis;
         }
         input {
             -webkit-flex: 1;
@@ -332,7 +294,6 @@
             margin-bottom: 0;
             &:focus {
                 color: $text-color;
-                border-color: $text-color;
             }
         }
         textarea {
@@ -348,7 +309,6 @@
             border: 1px solid;
             &:focus {
                 color: $text-color;
-                border-color: $text-color;
             }
         }
     }
@@ -443,6 +403,8 @@
         label {
             padding-right: 1em;
             padding-left: 1em;
+            max-width: 7em;
+            @extend %ellipsis;
         }
         input {
             display: block;
@@ -470,9 +432,9 @@
             display: -webkit-flex;
             display: flex;
             -webkit-flex-direction: row;
-            flex-direction: row;
+                     flex-direction: row;
             -webkit-align-items: center;
-            align-items: center;
+                     align-items: center;
             padding: 8px;
             border-bottom: 1px solid #dedede;
         }
@@ -555,16 +517,8 @@
         label {
             padding-right: 1em;
             padding-left: 1em;
-            /*&.required {
-                position: relative;
-                &::before {
-                    position: absolute;
-                    left: 0.4em;
-                    content: "*";
-                    color: #f00;
-                    font-size: 1em;
-                }
-            }*/
+            max-width: 7em;
+            @extend %ellipsis;
         }
         input {
             -webkit-flex: 1;
@@ -585,18 +539,13 @@
             padding: 0 1em;
             font-size: $font-size;
             color: #ccc;
-            //border: 1px solid !important;
             border: none;
             background-color: transparent;
             cursor: pointer;
             -webkit-appearance: menulist;
-            /*&:focus {
-                color: $text-color;
-                border-color: $text-color;
-            }*/
             option {
                 font-size: $font-size - 2;
-                //line-height: 1.2;
+                line-height: 1.2;
                 color: $text-color;
                 @extend %ellipsis;
             }

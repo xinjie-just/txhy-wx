@@ -36,21 +36,22 @@
     	<div class="mui-content">
     		<h1 class="hometown-heading">请填写家乡信息</h1>
 			<form action="" method="post" id="hometownForm" name="hometownForm" class="hometown-form">
+				<!-- 给必填项添加 input-field 类，同时给 label 添加 required 类 -->
 			    <div class="input-div area" id="areaContainer">
 			        <label for="area" class="required">所在地区</label>
-			    	<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
+			    	<input type="text" id="area" name="area" class="mui-input-clear input-field" readonly="readonly" placeholder="请选择所在地区">
 					<i class="mui-icon mui-icon-arrowright"></i>
 			    </div>
 			    <div class="input-div address">
 			        <label for="address" class="required">详细地址</label>
-			        <input type="text" id="address" name="address" class="mui-input-clear mui-input-speech" placeholder="请输入详细地址">
+			        <input type="text" id="address" name="address" class="mui-input-clear mui-input-speech input-field" placeholder="请输入详细地址">
 			    </div>
 				<div class="mui-checkbox mui-left protocol">
-				  	<input name="protocol" type="checkbox">
+				  	<input type="checkbox" id="protocol" name="protocol" checked>
 				  	<span>同意&laquo;<a href="#" title="同乡好运用户协议">同乡好运用户协议</a>&raquo;</span>
 				</div>
 			    <div class="mui-button-row hometown-handle">
-			        <button type="submit" class="mui-btn mui-btn-outlined hometown-submit">确认</button>
+			        <button type="submit" id="hometownSubmit" class="mui-btn mui-btn-outlined hometown-submit">确认</button>
 			    </div>
 			</form>
 		</div>
@@ -61,7 +62,6 @@
 		<script>
 			(function() {
 				mui.init({
-					
 				});
 				
 				//选择省市区
@@ -74,6 +74,24 @@
 						$("#area").val((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
 					});
 				});
+
+                mui("body").on("tap", "#hometownSubmit", function(){
+                    var check = true;
+                    mui("#hometownForm .input-field").each(function () {
+                        //若当前input为空，则alert提醒
+                        if (!this.value || this.value.trim() == "") {
+                            var label = this.previousElementSibling;
+                            this.focus();
+                            mui.toast(label.innerText + "不允许为空");
+                            check = false;
+                            return false;
+                        }
+                    });
+                    //校验通过，继续执行业务逻辑
+                    if(check){
+                        mui.toast('验证通过!');
+                    }
+                });
 
 			})();
 		</script>

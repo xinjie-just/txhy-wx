@@ -34,15 +34,16 @@
     	
     	<div class="mui-content">
 			<form action="" method="post" id="personalInfoForm" name="personalInfoForm" class="personal-info-form">
+				<!-- 给必填项添加 input-field 类，同时给 label 添加 required 类 -->
 			    <div class="name">
 			        <label for="name" class="required">姓名</label>
-			    	<input type="text" id="name" name="name" placeholder="请输入姓名">
+			    	<input type="text" id="name" name="name" class="input-field" placeholder="请输入姓名">
 			    </div>
 				<div class="phone">
 					<label for="phone" class="required">联系电话</label>
-					<input type="text" id="phone" name="phone" placeholder="请输入联系电话">
+					<input type="text" id="phone" name="phone" class="input-field" placeholder="请输入联系电话">
 					<!-- 简洁模式开关打开状态 -->
-					<div class="mui-switch mui-switch-mini mui-switch-blue mui-active phone-switch">
+					<div id="phoneSwitch" class="mui-switch mui-switch-mini mui-switch-blue mui-active phone-switch">
 						<div class="mui-switch-handle phone-switch-handle"></div>
 					</div>
 					<span>是否保密</span>
@@ -74,18 +75,18 @@
 				</div>
 				<div class="product">
 					<label for="product" class="required">产品信息</label>
-					<input type="text" id="product" name="product" placeholder="请输入产品信息">
+					<input class="input-field" type="text" id="product" name="product" placeholder="请输入产品信息">
 				</div>
 				<div class="intro">
 					<label for="intro" class="required">公司产品个人介绍</label>
-					<textarea name="intro" id="intro" placeholder="请输入公司产品或个人介绍"></textarea>
+					<textarea class="input-field" name="intro" id="intro" placeholder="请输入公司产品或个人介绍"></textarea>
 				</div>
 				<div class="discounts">
 					<label for="discounts" class="required">优惠信息</label>
-					<textarea name="discounts" id="discounts" placeholder="请输入优惠信息"></textarea>
+					<textarea class="input-field" name="discounts" id="discounts" placeholder="请输入优惠信息"></textarea>
 				</div>
 			    <div class="mui-button-row personal-info-handle">
-			        <button type="submit" class="mui-btn mui-btn-outlined personal-info-submit">保存</button>
+			        <button type="submit" id="personalInfoSubmit" class="mui-btn mui-btn-outlined personal-info-submit">保存</button>
 			    </div>
 			</form>
 		</div>
@@ -96,10 +97,36 @@
 		<script>
 			(function() {
 				mui.init({
-					
 				});
 
-			})();
+				// 表单验证
+				mui("body").on("tap", "#personalInfoSubmit", function(){
+					var check = true;
+					mui("#personalInfoForm .input-field").each(function () {
+						//若当前input为空，则alert提醒
+						if (!this.value || this.value.trim() == "") {
+							var label = this.previousElementSibling;
+							this.focus();
+                            mui.toast(label.innerText + "不允许为空");
+							check = false;
+							return false;
+						}
+					});
+					//校验通过，继续执行业务逻辑
+					if(check){
+                        mui.toast('验证通过!');
+					}
+				});
+
+				// 电话号码保密
+                var isActive = document.getElementById("phoneSwitch").classList.contains("mui-active");
+                if(isActive){
+                    console.log("打开状态"); // 电话保密
+                }else{
+                    console.log("关闭状态"); // 电话不保密
+                }
+
+            })();
 		</script>
 	</body>
 </html>
