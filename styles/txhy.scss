@@ -164,6 +164,7 @@
     $height: 40px;
     margin-top: 1rem;
     padding-right: 1em;
+    padding-left: .5em;
     > div {
         margin-bottom: 15px;
         font-size: 0;
@@ -473,7 +474,7 @@
             -webkit-align-items: center;
             align-items: center;
             padding: 8px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #dedede;
         }
         &:first-of-type {
             a {
@@ -487,6 +488,7 @@
         width: 40px;
         height: 40px;
         line-height: 40px;
+        border-radius: 50%;
         margin-right: 10px;
         box-sizing: content-box;
         @extend %ellipsis;
@@ -514,5 +516,167 @@
         width: 80px;
         padding-right: 5px;
         padding-left: 5px;
+    }
+}
+
+/*===本地===*/
+.local-form {
+    $height: 40px;
+    margin-top: 1rem;
+    > div {
+        margin-bottom: 10px;
+        height: $height;
+        line-height: $height;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+                 flex-direction: row;
+        -webkit-align-items: center;
+                 align-items: center;
+        background-color: #fff !important;
+        font-size: $font-size;
+        color: $text-color;
+        &.local-search {
+            .mui-placeholder {
+                height: inherit;
+                line-height: inherit;
+                font-size: inherit;
+            }
+            .mui-icon-clear {
+                top: 10px;
+            }
+            &.mui-active {
+                &::before {
+                   transform: translateY(-50%);
+                    margin-top: 0;
+                }
+            }
+        }
+        label {
+            padding-right: 1em;
+            padding-left: 1em;
+            /*&.required {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    left: 0.4em;
+                    content: "*";
+                    color: #f00;
+                    font-size: 1em;
+                }
+            }*/
+        }
+        input {
+            -webkit-flex: 1;
+                     flex: 1;
+            background-color: transparent;
+            padding: 0 1em;
+            margin-bottom: 0;
+            border: none;
+            &[type="search"] {
+                height: inherit;
+                font-size: inherit;
+                padding-right: 30px;
+            }
+        }
+        select {
+            -webkit-flex: 1;
+            flex: 1;
+            padding: 0 1em;
+            font-size: $font-size;
+            color: #ccc;
+            //border: 1px solid !important;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            -webkit-appearance: menulist;
+            /*&:focus {
+                color: $text-color;
+                border-color: $text-color;
+            }*/
+            option {
+                font-size: $font-size - 2;
+                //line-height: 1.2;
+                color: $text-color;
+                @extend %ellipsis;
+            }
+        }
+    }
+}
+.local-intro {
+    margin-top: 1rem;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: $font-size;
+    p {
+        color: $text-color;
+        line-height: 1.5;
+        &:not(:last-of-type) {
+            margin-bottom: .5em;
+        }
+        span {
+            color: #999;
+        }
+    }
+}
+.local-list {
+    margin-top: 1rem;
+    li {
+        a {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: center;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #dedede;
+        }
+        &:first-of-type {
+            a {
+                border-top: 1px solid #ccc;
+            }
+        }
+    }
+    img {
+        display: block;
+        font-size: 12px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        box-sizing: content-box;
+        @extend %ellipsis;
+    }
+    .name {
+        display: block;
+        font-size: 12px;
+        width: 60px;
+        padding-right: 5px;
+        padding-left: 5px;
+        @extend %ellipsis;
+    }
+    .local-heading {
+        display: block;
+        font-size: 12px;
+        -webkit-flex: 1;
+        flex: 1;
+        padding-right: 5px;
+        padding-left: 5px;
+        @extend %ellipsis;
+    }
+    time {
+        display: block;
+        font-size: 12px;
+        width: 80px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    i {
+        display: block;
+        font-size: $font-size + 4;
+        color: $text-color;
+        text-align: center;
     }
 }

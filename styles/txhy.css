@@ -331,7 +331,7 @@ label {
 }
 
 .personal-info-form > div select option, .personal-message-table tr th,
-.personal-message-table tr td, .msg-list img, .msg-list .name, .msg-list .msg-heading {
+.personal-message-table tr td, .msg-list img, .msg-list .name, .msg-list .msg-heading, .local-form > div select option, .local-list img, .local-list .name, .local-list .local-heading {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -489,6 +489,7 @@ label {
 .personal-info-form {
   margin-top: 1rem;
   padding-right: 1em;
+  padding-left: .5em;
 }
 .personal-info-form > div {
   margin-bottom: 15px;
@@ -786,7 +787,7 @@ label {
   -webkit-align-items: center;
   align-items: center;
   padding: 8px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #dedede;
 }
 .msg-list li:first-of-type a {
   border-top: 1px solid #ccc;
@@ -797,6 +798,7 @@ label {
   width: 40px;
   height: 40px;
   line-height: 40px;
+  border-radius: 50%;
   margin-right: 10px;
   box-sizing: content-box;
 }
@@ -821,6 +823,155 @@ label {
   width: 80px;
   padding-right: 5px;
   padding-left: 5px;
+}
+
+/*===本地===*/
+.local-form {
+  margin-top: 1rem;
+}
+.local-form > div {
+  margin-bottom: 10px;
+  height: 40px;
+  line-height: 40px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #fff !important;
+  font-size: 14px;
+  color: #333;
+}
+.local-form > div.local-search .mui-placeholder {
+  height: inherit;
+  line-height: inherit;
+  font-size: inherit;
+}
+.local-form > div.local-search .mui-icon-clear {
+  top: 10px;
+}
+.local-form > div.local-search.mui-active::before {
+  transform: translateY(-50%);
+  margin-top: 0;
+}
+.local-form > div label {
+  padding-right: 1em;
+  padding-left: 1em;
+  /*&.required {
+      position: relative;
+      &::before {
+          position: absolute;
+          left: 0.4em;
+          content: "*";
+          color: #f00;
+          font-size: 1em;
+      }
+  }*/
+}
+.local-form > div input {
+  -webkit-flex: 1;
+  flex: 1;
+  background-color: transparent;
+  padding: 0 1em;
+  margin-bottom: 0;
+  border: none;
+}
+.local-form > div input[type="search"] {
+  height: inherit;
+  font-size: inherit;
+  padding-right: 30px;
+}
+.local-form > div select {
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 0 1em;
+  font-size: 14px;
+  color: #ccc;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: menulist;
+  /*&:focus {
+      color: $text-color;
+      border-color: $text-color;
+  }*/
+}
+.local-form > div select option {
+  font-size: 12px;
+  color: #333;
+}
+
+.local-intro {
+  margin-top: 1rem;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-size: 14px;
+}
+.local-intro p {
+  color: #333;
+  line-height: 1.5;
+}
+.local-intro p:not(:last-of-type) {
+  margin-bottom: .5em;
+}
+.local-intro p span {
+  color: #999;
+}
+
+.local-list {
+  margin-top: 1rem;
+}
+.local-list li a {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #dedede;
+}
+.local-list li:first-of-type a {
+  border-top: 1px solid #ccc;
+}
+.local-list img {
+  display: block;
+  font-size: 12px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-sizing: content-box;
+}
+.local-list .name {
+  display: block;
+  font-size: 12px;
+  width: 60px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.local-list .local-heading {
+  display: block;
+  font-size: 12px;
+  -webkit-flex: 1;
+  flex: 1;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.local-list time {
+  display: block;
+  font-size: 12px;
+  width: 80px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.local-list i {
+  display: block;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
 }
 
 /*# sourceMappingURL=txhy.css.map */

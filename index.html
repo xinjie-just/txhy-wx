@@ -4,21 +4,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <title>个人资料 | 同乡好运</title>
+        <title>本地| 同乡好运</title>
         <meta name="keywords" content="同乡好运">
         <meta name="description" content="同乡好运">
 		<link href="styles/mui.css" rel="stylesheet" />
+		<link href="styles/mui.picker.min.css" rel="stylesheet" />
 		<link href="styles/txhy.css" rel="stylesheet"/>
     </head>
     <body>
-    	<header class="mui-bar mui-bar-nav">
-    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    	    <h1 class="mui-title">个人资料</h1>
-    	</header>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">本地</h1>
+		</header>
     	
     	<nav class="mui-bar mui-bar-tab">
 			<!--当前页 <a> 标签添加 mui-active 类-->
-    	    <a class="mui-tab-item">
+    	    <a class="mui-tab-item mui-active">
     	        <span class="mui-icon mui-icon-home"></span>
     	        <span class="mui-tab-label">本地</span>
     	    </a>
@@ -26,26 +26,18 @@
     	        <span class="mui-icon mui-icon-chatbubble"></span>
     	        <span class="mui-tab-label">动态</span>
     	    </a>
-    	    <a class="mui-tab-item mui-active">
+    	    <a class="mui-tab-item">
     	        <span class="mui-icon mui-icon-person"></span>
     	        <span class="mui-tab-label">我的</span>
     	    </a>
     	</nav>
     	
     	<div class="mui-content">
-			<form action="" method="post" id="personalInfoForm" name="personalInfoForm" class="personal-info-form">
-			    <div class="name">
-			        <label for="name" class="required">姓名</label>
-			    	<input type="text" id="name" name="name" placeholder="请输入姓名">
-			    </div>
-				<div class="phone">
-					<label for="phone" class="required">联系电话</label>
-					<input type="text" id="phone" name="phone" placeholder="请输入联系电话">
-					<!-- 简洁模式开关打开状态 -->
-					<div class="mui-switch mui-switch-mini mui-switch-blue mui-active phone-switch">
-						<div class="mui-switch-handle phone-switch-handle"></div>
-					</div>
-					<span>是否保密</span>
+			<form action="" method="post" id="localForm" name="localForm" class="local-form">
+				<div class="area" id="areaContainer">
+					<label for="area">所在地区</label>
+					<input type="text" id="area" name="area" class="mui-input-clear" readonly="readonly" placeholder="请选择所在地区">
+					<i class="mui-icon mui-icon-arrowright"></i>
 				</div>
 				<div class="profession">
 					<label for="profession" class="required">所在行业</label>
@@ -71,34 +63,67 @@
 						<option value="18">共公管理、社会保障和社会组织</option>
 						<option value="19">国际组织</option>
 					</select>
+					<i class="mui-icon mui-icon-arrowright"></i>
 				</div>
-				<div class="product">
-					<label for="product" class="required">产品信息</label>
-					<input type="text" id="product" name="product" placeholder="请输入产品信息">
+				<div class="mui-input-row mui-search local-search">
+					<input type="search" class="mui-input-clear" placeholder="搜索同乡产品或服务">
 				</div>
-				<div class="intro">
-					<label for="intro" class="required">公司产品个人介绍</label>
-					<textarea name="intro" id="intro" placeholder="请输入公司产品或个人介绍"></textarea>
-				</div>
-				<div class="discounts">
-					<label for="discounts" class="required">优惠信息</label>
-					<textarea name="discounts" id="discounts" placeholder="请输入优惠信息"></textarea>
-				</div>
-			    <div class="mui-button-row personal-info-handle">
-			        <button type="submit" class="mui-btn mui-btn-outlined personal-info-submit">保存</button>
-			    </div>
 			</form>
+			<div class="local-intro">
+				<p>联络处简介：<span>XX联络处是同乡聚会...</span></p>
+				<p>欢迎大家加入...</p>
+			</div>
+			<ul class="local-list">
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+			</ul>
 		</div>
-    	
+
+		<script src="scripts/jquery.min.js"></script>
 		<script src="scripts/data.city.js"></script>
 		<script src="scripts/mui.js"></script>
 		<script src="scripts/mui.picker.min.js"></script>
 		<script>
 			(function() {
 				mui.init({
-					
+
 				});
 
+                //选择省市区
+                var city_picker = new mui.PopPicker({
+                    layer:2 // 显示列数，这里显示省市2列
+                });
+                city_picker.setData(init_city_picker);
+                $("#areaContainer").on("tap", function(){
+                    city_picker.show(function(items){
+                        $("#area").val((items[0] || {}).text + " " + (items[1] || {}).text);
+                    });
+                });
 			})();
 		</script>
 	</body>
