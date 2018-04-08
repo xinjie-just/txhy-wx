@@ -73,7 +73,117 @@
 				<p>联络处简介：<span>XX联络处是同乡聚会...</span></p>
 				<p>欢迎大家加入...</p>
 			</div>
-			<ul id="localList" class="local-list">
+			<div id="refreshContainer" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul id="localList" class="local-list">
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" title="">
+						<img src="images/cbd.jpg" alt="">
+						<span class="name">张三</span>
+						<span class="local-heading">招聘信息</span>
+						<time>2017-12-26</time>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</a>
+				</li>
 				<li>
 					<a href="javascript:;" title="">
 						<img src="images/cbd.jpg" alt="">
@@ -102,6 +212,8 @@
 					</a>
 				</li>
 			</ul>
+				</div>
+			</div>
 		</div>
 
 		<script src="scripts/jquery.min.js"></script>
@@ -109,7 +221,7 @@
 		<script src="scripts/mui.js"></script>
 		<script src="scripts/mui.picker.min.js"></script>
 		<script>
-			(function() {
+			/*(function() {
 				mui.init({
                     pullRefresh : {
                         container: localList,//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
@@ -123,14 +235,14 @@
                     }
 				});
 
-                /*function localListPullFresh() {
+                function localListPullFresh() {
                     // toDoSometing 业务逻辑代码，比如通过ajax从服务器获取新数据；
 
                     //注意：
                     //1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
                     //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
-                    this.endPullupToRefresh(true|false);
-                }*/
+                    this.endPullupToRefresh(false);
+                }
 
                 //选择省市区
                 var city_picker = new mui.PopPicker({
@@ -143,7 +255,110 @@
                     });
                 });
 
-			})();
+			})();*/
+			mui.init({
+				pullRefresh : {
+					container: "#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+					up : {
+						height: 50,//可选.默认50.触发上拉加载拖动距离
+						auto: false,//可选,默认false.自动上拉加载一次
+						contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+						contentnomore: '没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: localListPullFresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					}
+				}
+			});
+
+			function localListPullFresh() {
+				//mui('#localList').pullRefresh().disablePullupToRefresh();
+				$.ajax({
+					url:"wx/loadindexdata",
+					type:"POST",
+					data:$("#localForm").serialize(),
+					dataType:"JSON",
+					success:function(data){
+						$("#pageNo").val(data.pageNo);
+						if(data.list.length!=0){
+							var html = "";
+							$.each(data.list,function(index,bi){
+								html = html + "<li>" +
+									"<a href=\"javascript:;\" title=\"\">" +
+									"<img src=" + bi.userBaseInfo.head + " alt=\"\">" +
+									"<span class=\"name\">" + ifnull(bi.userBaseInfo.nickname) + "</span>" +
+									"<span class=\"local-heading\">" + bi.mainBusin + "</span>" +
+									"<i class=\"mui-icon mui-icon-arrowright\"></i>" +
+									"</a>" +
+									"</li>";
+							});
+							$("#localList").append(html);
+
+							//注意：
+							//1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+							//2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+							mui('#localList').pullRefresh().endPullupToRefresh(false);
+						}
+						else{
+							mui('#localList').pullRefresh().endPullupToRefresh(true);
+						}
+					},error:function(){
+						mui('#localList').pullRefresh().endPullupToRefresh(true);
+					}
+				});
+			}
+
+			mui(".mui-scroll-wrapper").scroll({
+				indicators:false
+			});
+
+			function ifnull(str){
+				if(str == null || str == "undefined"){
+					return "";
+				}
+				else{
+					return str;
+				}
+			}
+
+			document.getElementById('todynamic').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'wx/dynamic'
+				});
+			});
+
+			document.getElementById('tomy').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'wx/tomy'
+				});
+			});
+
+			//选择省市区
+			var city_picker = new mui.PopPicker({
+				layer:2 // 显示列数，这里显示省市2列
+			});
+			city_picker.setData(init_city_picker);
+			city_picker.pickers[0].setSelectedIndex(22);
+			city_picker.pickers[1].setSelectedIndex(0);
+			if (true){
+				var okbtn = document.getElementsByClassName("mui-poppicker-btn-ok");
+				city_picker.show(function(items){
+					$("#area").val(items[0].text + " " + items[0].children[0].text);
+				});
+				mui.trigger(okbtn[0], 'tap');
+			}
+
+			$("#areaContainer").on("tap", function(){
+				city_picker.show(function(items){
+					$("#area").val((items[0] || {}).text + " " + (items[1] || {}).text);
+					//console.log(items[1]);
+					$("#cityName").val(items[1].text);
+				});
+			});
+
+			$("#searchinput").blur(function(){
+				if($("#searchinput").val()!=""){
+					$("#localForm").submit();
+				}
+			});
 		</script>
 	</body>
 </html>
